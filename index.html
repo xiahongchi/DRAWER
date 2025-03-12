@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
+
+  <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
+
+  <title>DRAWER</title>
+
+  <link rel="icon" type="image/x-icon" href="src/images/drawer.png">
+
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- mirror: F0%9F%AA%9E&lt -->
+
+  <link rel="stylesheet" type="text/css" href="./src/slick.css">
+  <link rel="stylesheet" type="text/css" href="./src/slick-theme.css">
+  <link rel="stylesheet" href="./src/bulma.min.css">
+  <link rel="stylesheet" href="./src/bulma-slider.min.css">
+  <link rel="stylesheet" href="./src/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./src/bootstrap.min.css">
+  <link rel="stylesheet" href="./src/font-awesome.min.css">
+  <link rel="stylesheet" href="./src/codemirror.min.css">
+  <link rel="stylesheet" href="./src/app.css">
+  <link rel="stylesheet" href="./src/index.css">
+  <link rel="stylesheet" href="./src/select.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="resources/glide.core.min.css">
+  <link rel="stylesheet" href="resources/glide.theme.min.css">
+  <link rel="stylesheet" href="resources/glide-custom.css">
+  <script src="resources/handlers.js"></script>
+  <script src="./src/jquery.min.js"></script>
+  <script src="./src/bootstrap.min.js"></script>
+  <script src="./src/codemirror.min.js"></script>
+  <script src="./src/clipboard.min.js"></script>
+  <script src="./src/video_comparison.js"></script>
+  <script src="./src/select.js"></script>
+  <script src="./src/bulma-slider.min.js"></script>
+  <script src="./src/bulma-carousel.min.js"></script>
+  <!-- <script src="./src/app.js"></script> -->
+  <script src="./src/index.js"></script>
+  <!-- <script src="./src/slick.js"></script> -->
+  
+  <script src="resources/glide.min.js"></script>
+  <script>
+  window.onload = function() {
+    new Glide("#dynamic-carousel", {
+      type: "carousel",
+      perView: 1.68,
+      focusAt: "center",
+      autoplay: 13000,
+      hoverpause: true
+    }).mount();
+    new Glide("#dynamic-carousel-2", {
+      type: "carousel",
+      perView: 1.68,
+      focusAt: "center",
+      autoplay: 13000,
+      hoverpause: true
+    }).mount();
+    new Glide("#dynamic-carousel-3", {
+      type: "carousel",
+      perView: 1.68,
+      focusAt: "center",
+      autoplay: 13000,
+      hoverpause: true
+    }).mount();
+    new Glide("#dynamic-carousel-4", {
+      type: "carousel",
+      perView: 1.68,
+      focusAt: "center",
+      autoplay: 13000,
+      hoverpause: true
+    }).mount();
+    new Glide("#static-carousel", {
+      type: "carousel",
+      perView: 1.68,
+      focusAt: "center",
+      autoplay: 3000,
+      hoverpause: true
+    }).mount();
+    new Glide("#realtime-carousel", {
+      type: "carousel",
+      perView: 2.05,
+      focusAt: "center",
+      autoplay: 3000,
+      hoverpause: true
+    }).mount();
+  };
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZ6PES7EKD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RZ6PES7EKD');
+  </script>
+</head>
+
+<body>
+  <div class="container" id="header" style="text-align: center; margin: auto;">
+    <div class="row" id="title-row" style="max-width: 100%; margin: 0 auto; display: inline-block">
+      <h1 class="col-md-12 text-center" id="title">
+        <b>DRAWER</b>: Digital Reconstruction and Articulation <br> With Environment Realism<br>
+      </h1>
+    </div>
+  </div>
+  <script>
+  </script>
+  <div class="container" id="main">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 text-center">
+        <ul class="list-inline">
+          <li> <a href="https://xiahongchi.github.io/">Hongchi Xia<sup>1</sup></a> </li>
+          <li> <a href="https://entongsu.github.io/">Entong Su<sup>3</sup></a>  </li>
+          <li> <a href="https://memmelma.github.io/">Marius Memmel<sup>3</sup></a> </li>
+          <li> <a href="https://arhanjain.github.io/">Arhan Jain<sup>3</sup></a> </li>
+          <li> <a href="https://raymondyu5.github.io/">Raymond Yu<sup>3</sup></a> </li>
+          <li> <a href="https://www.linkedin.com/in/numfor-mbiziwo-tiapo/">Numfor Mbiziwo-Tiapo<sup>3</sup></a> </li>
+          <br>
+          <li> <a href="https://homes.cs.washington.edu/~ali/">Ali Farhadi<sup>3</sup></a> </li>
+          <li> <a href="https://homes.cs.washington.edu/~abhgupta/">Abhishek Gupta<sup>3</sup></a> </li>
+          <li> <a href="https://shenlong.web.illinois.edu/">Shenlong Wang<sup>1</sup></a> </li>
+          <li> <a href="https://www.cs.cornell.edu/~weichiu/">Wei-Chiu Ma<sup>2</sup></a> </li>
+        </ul>
+        <ul class="list-inline">
+          <li> <sup>1</sup>University of Illinois at Urbana-Champaign </li>
+          <li> <sup>2</sup>Cornell University </li>
+          <li> <sup>3</sup>University of Washington </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        
+        <span class="link-block">
+          <a href="" class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+              <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false" data-prefix="fas"
+                data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+                data-fa-i2svg="">
+                <path fill="currentColor"
+                  d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z">
+                </path>
+              </svg><!-- <i class="fas fa-file-pdf"></i> Font Awesome fontawesome.com -->
+            </span>
+            <span>Paper</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a href="https://github.com/xiahongchi/DRAWER" class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+              <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab"
+                data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg="">
+                <path fill="currentColor"
+                  d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+                </path>
+              </svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+            </span>
+            <span>Code</span>
+          </a>
+        </span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 text-center">
+        <img src="./src/images/teaser.png" class="img-responsive" alt="overview" width="100%"
+            style="max-height: 450px;margin:auto;">
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+            Abstract 
+        </h3>
+        <div class="text-justify">
+          Creating virtual digital replicas from real-world data unlocks significant potential across domains like gaming and robotics. 
+          In this paper, we present DRAWER, a novel framework that converts a video of a static indoor scene into a photorealistic and interactive digital environment. 
+          Our approach centers on two main contributions: 
+          (i) a reconstruction module based on a dual scene representation that reconstructs the scene with fine-grained geometric details, 
+          and (ii) an articulation module that identifies articulation types and hinge positions, reconstructs simulatable shapes and appearances and integrates them into the scene. 
+          The resulting virtual environment is photorealistic, interactive, and runs in real time, with compatibility for game engines and robotic simulation platforms. 
+          We demonstrate the potential of DRAWER by using it to automatically create an interactive game in Unreal Engine and to enable real-to-sim-to-real transfer for robotics applications.
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Interactable 3D reconstruction
+        </h3>
+        <div class="text-justify">
+          We visualize the interactable 3D reconstruction in multiple kitchens. To avoid clutter in visualization, we randomly select a subset of drawers/cabinets to open.
+        </div>
+      </div>
+    </div>
+
+
+    <div class="glide" id="dynamic-carousel-4">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          <li class="glide__slide">
+            <video class="game" controls muted loop autoplay>
+              <source src="src/videos/cs_kitchen_n.mp4" type="video/mp4"/>
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video class="game" controls muted loop autoplay>
+              <source src="src/videos/uw_kitchen_3.mp4" type="video/mp4"/>
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video class="game" controls muted loop autoplay>
+              <source src="src/videos/cs_kitchen.mp4" type="video/mp4"/>
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video class="game" controls muted loop autoplay>
+              <source src="src/videos/uw_kitchen.mp4" type="video/mp4"/>
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video class="game" controls muted loop autoplay>
+              <source src="src/videos/uw_kitchen_2.mp4" type="video/mp4"/>
+            </video>
+          </li>
+        </ul>
+      </div>
+
+      <div class="glide__arrows" data-glide-el="controls">
+        <span class="glide__arrow glide__arrow--left" data-glide-dir="<"><img src="resources/arrow-left-circle-fill.svg"/></span>
+        <span class="glide__arrow glide__arrow--right" data-glide-dir=">"><img src="resources/arrow-right-circle-fill.svg"/></span>
+      </div>
+      <div class="glide__bullets" data-glide-el="controls[nav]">
+        <span class="glide__bullet" data-glide-dir="=0"></span>
+        <span class="glide__bullet" data-glide-dir="=1"></span>
+        <span class="glide__bullet" data-glide-dir="=2"></span>
+        <span class="glide__bullet" data-glide-dir="=3"></span>
+        <span class="glide__bullet" data-glide-dir="=4"></span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Gaming: Opening the doors
+        </h3>
+        <div class="text-justify">
+          We demonstrate our interactive game in Unreal Engine with game features of opening cabinet and drawer doors.
+          When the player presses a key, they can push or pull the cabinet/drawer doors in the direction they're aiming, based on where their crosshair is pointing.
+        </div>
+      </div>
+    </div>
+
+    <div class="glide" id="dynamic-carousel-2">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          <li class="glide__slide">
+            <video class="game" controls muted loop autoplay>
+              <source src="src/games/open_1_d1.mp4" type="video/mp4"/>
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video class="game" controls muted loop autoplay>
+              <source src="src/games/open_1_d2.mp4" type="video/mp4"/>
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video class="game" controls muted loop autoplay>
+              <source src="src/games/open_1_d3.mp4" type="video/mp4"/>
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video class="game" controls muted loop autoplay>
+              <source src="src/games/open_1_d4.mp4" type="video/mp4"/>
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video  class="game" controls muted loop autoplay>
+              <source src="src/games/open_2_d1.mp4" type="video/mp4"/>
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video  class="game" controls muted loop autoplay>
+              <source src="src/games/open_2_d2.mp4" type="video/mp4"/>
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video  class="game" controls muted loop autoplay>
+              <source src="src/games/open_2_d3.mp4" type="video/mp4"/>
+            </video>
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="glide__arrows" data-glide-el="controls">
+        <span class="glide__arrow glide__arrow--left" data-glide-dir="<"><img src="resources/arrow-left-circle-fill.svg"/></span>
+        <span class="glide__arrow glide__arrow--right" data-glide-dir=">"><img src="resources/arrow-right-circle-fill.svg"/></span>
+      </div>
+      <div class="glide__bullets" data-glide-el="controls[nav]">
+        <span class="glide__bullet" data-glide-dir="=0"></span>
+        <span class="glide__bullet" data-glide-dir="=1"></span>
+        <span class="glide__bullet" data-glide-dir="=2"></span>
+        <span class="glide__bullet" data-glide-dir="=3"></span>
+        <span class="glide__bullet" data-glide-dir="=4"></span>
+        <span class="glide__bullet" data-glide-dir="=5"></span>
+        <span class="glide__bullet" data-glide-dir="=6"></span>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Gaming: Shooting rigid objects
+        </h3>
+        <div class="text-justify">
+          We demonstrate our interactive game in Unreal Engine with game features including shooting rigid objects segmented from the scene.
+          The player can shoot yellow balls with the gun.
+        </div>
+      </div>
+    </div>
+
+    <div class="glide" id="dynamic-carousel-3">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          <li class="glide__slide">
+            <video class="game" controls muted loop autoplay>
+              <source src="src/games/move_1_d1.mp4" type="video/mp4"/>
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video class="game" controls muted loop autoplay>
+              <source src="src/games/move_1_d2.mp4" type="video/mp4"/>
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video class="game" controls muted loop autoplay>
+              <source src="src/games/move_1_d3.mp4" type="video/mp4"/>
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video class="game" controls muted loop autoplay>
+              <source src="src/games/move_2_d1.mp4" type="video/mp4"/>
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video class="game" controls muted loop autoplay>
+              <source src="src/games/move_2_d2.mp4" type="video/mp4"/>
+            </video>
+          </li>
+        </ul>
+      </div>
+
+      <div class="glide__arrows" data-glide-el="controls">
+        <span class="glide__arrow glide__arrow--left" data-glide-dir="<"><img src="resources/arrow-left-circle-fill.svg"/></span>
+        <span class="glide__arrow glide__arrow--right" data-glide-dir=">"><img src="resources/arrow-right-circle-fill.svg"/></span>
+      </div>
+      <div class="glide__bullets" data-glide-el="controls[nav]">
+        <span class="glide__bullet" data-glide-dir="=0"></span>
+        <span class="glide__bullet" data-glide-dir="=1"></span>
+        <span class="glide__bullet" data-glide-dir="=2"></span>
+        <span class="glide__bullet" data-glide-dir="=3"></span>
+        <span class="glide__bullet" data-glide-dir="=4"></span>
+      </div>
+    </div>
+
+
+
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Real-to-sim-to-real
+        </h3>
+        <div class="text-justify">
+          We deploy policies trained in simulation in a zero-shot fashion in the real world on a Franka Emika Panda robot mounted on a mobile base. 
+          We trained independent policies for each substage of the problem - drawer closing, picking and placing, and opening.
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="glide" id="dynamic-carousel">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          <li class="glide__slide">
+            <video id="rsr1" controls muted loop autoplay>
+              <source src="src/videos/rsr1.mp4" type="video/mp4"/>
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video controls muted loop autoplay>
+              <source src="src/videos/rsr2.mp4" type="video/mp4"/>
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video controls muted loop autoplay>
+              <source src="src/videos/rsr3.mp4" type="video/mp4"/>
+            </video>
+          </li>
+        </ul>
+      </div>
+
+      <div class="glide__arrows" data-glide-el="controls">
+        <span class="glide__arrow glide__arrow--left" data-glide-dir="<"><img src="resources/arrow-left-circle-fill.svg"/></span>
+        <span class="glide__arrow glide__arrow--right" data-glide-dir=">"><img src="resources/arrow-right-circle-fill.svg"/></span>
+      </div>
+      <div class="glide__bullets" data-glide-el="controls[nav]">
+        <span class="glide__bullet" data-glide-dir="=0"></span>
+        <span class="glide__bullet" data-glide-dir="=1"></span>
+        <span class="glide__bullet" data-glide-dir="=2"></span>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          System Overview
+        </h3>
+        <div class="text-justify">
+          Given multiple posed images from a single video, we employ a dual scene representation that combines high-fidelity rendering with aligned geometry. We then animate the scene with physical reasoning to estimate articulated and movable rigid-body objects. Our amodel shape estimation with hidden region texturing enables us to create an interactable digital twin, supporting real-time physical interactions such as opening drawers/cabinets, moving objects, and rendering novel views.  
+        </div>
+        <center>
+          <img src="src/images/method.png" width="100%" height="500px">
+        </center>
+      </div>
+    </div>
+    
+
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
