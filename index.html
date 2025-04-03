@@ -113,21 +113,22 @@
       <div class="col-sm-10 col-sm-offset-1 text-center">
         <ul class="list-inline">
           <li> <a href="https://xiahongchi.github.io/">Hongchi Xia<sup>1</sup></a> </li>
-          <li> <a href="https://entongsu.github.io/">Entong Su<sup>3</sup></a>  </li>
-          <li> <a href="https://memmelma.github.io/">Marius Memmel<sup>3</sup></a> </li>
-          <li> <a href="https://arhanjain.github.io/">Arhan Jain<sup>3</sup></a> </li>
-          <li> <a href="https://raymondyu5.github.io/">Raymond Yu<sup>3</sup></a> </li>
-          <li> <a href="https://www.linkedin.com/in/numfor-mbiziwo-tiapo/">Numfor Mbiziwo-Tiapo<sup>3</sup></a> </li>
+          <li> <a href="https://entongsu.github.io/">Entong Su<sup>2</sup></a>  </li>
+          <li> <a href="https://memmelma.github.io/">Marius Memmel<sup>2</sup></a> </li>
+          <li> <a href="https://arhanjain.github.io/">Arhan Jain<sup>2</sup></a> </li>
+          <li> <a href="https://raymondyu5.github.io/">Raymond Yu<sup>2</sup></a> </li>
+          <li> <a href="https://www.linkedin.com/in/numfor-mbiziwo-tiapo/">Numfor Mbiziwo-Tiapo<sup>2</sup></a> </li>
           <br>
-          <li> <a href="https://homes.cs.washington.edu/~ali/">Ali Farhadi<sup>3</sup></a> </li>
-          <li> <a href="https://homes.cs.washington.edu/~abhgupta/">Abhishek Gupta<sup>3</sup></a> </li>
+          <li> <a href="https://homes.cs.washington.edu/~ali/">Ali Farhadi<sup>2,3</sup></a> </li>
+          <li> <a href="https://homes.cs.washington.edu/~abhgupta/">Abhishek Gupta<sup>2</sup></a> </li>
           <li> <a href="https://shenlong.web.illinois.edu/">Shenlong Wang<sup>1</sup></a> </li>
-          <li> <a href="https://www.cs.cornell.edu/~weichiu/">Wei-Chiu Ma<sup>2</sup></a> </li>
+          <li> <a href="https://www.cs.cornell.edu/~weichiu/">Wei-Chiu Ma<sup>4</sup></a> </li>
         </ul>
         <ul class="list-inline">
           <li> <sup>1</sup>University of Illinois at Urbana-Champaign </li>
-          <li> <sup>2</sup>Cornell University </li>
-          <li> <sup>3</sup>University of Washington </li>
+          <li> <sup>2</sup>University of Washington </li>
+          <li> <sup>3</sup>Allen Institute for AI </li>
+          <li> <sup>4</sup>Cornell University </li>
         </ul>
       </div>
     </div>
@@ -191,10 +192,337 @@
       </div>
     </div>
 
+
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <h3>
-          Interactable 3D reconstruction
+            Overview 
+        </h3>
+        <div class="text-justify">
+            DRAWER automatically converts a video of a static scene <b>without any interactions with the doors and objects in the scene</b> into an interactive environment with segmented objects and articulated doors. 
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div style="display: flex; align-items: center; justify-content: center; margin: 20px 0;">
+          <!-- Left video (smaller) -->
+          <div style="width: 35%;">
+            <video width="100%" height="auto" controls  autoplay loop muted playsinline style poster="path/to/poster-image-left.jpg">
+              <source src="src/overview/collection.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          
+          <!-- Arrow image in center -->
+          <div style="width: 15%; display: flex; justify-content: center; align-items: center;">
+            <img src="src/overview/arrow.png" alt="Direction arrow" style="width: 80%; max-width: 120px;">
+          </div>
+          
+          <!-- Right video (larger) -->
+          <div style="width: 50%;">
+            <video width="100%" height="auto" controls  autoplay loop muted playsinline style poster="path/to/poster-image-right.jpg">
+              <source src="src/videos/cs_kitchen_n.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          System Design
+        </h3>
+        <div class="text-justify">
+          Given multiple posed images from a single video, we employ a <b>Dual Scene Representation</b> that combines high-fidelity rendering <b>(3D Gaussian Splatting)</b> with aligned geometry <b>(Mesh From BakedSDF)</b>. 
+          We then animate the scene with physical reasoning to estimate articulated and movable rigid-body objects. 
+          Our amodel shape estimation with hidden region texturing enables us to create an interactable digital twin, supporting real-time physical interactions such as opening drawers/cabinets, moving objects, and rendering novel views.  
+        </div>
+        <center>
+          <img src="src/images/method.png" width="100%" height="500px">
+        </center>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Why We Need a Dual Scene Representation?
+        </h3>
+        <div class="text-justify">
+          We need to reconstruct the scene with high-fidelity rendering and aligned geometry. 
+          The high-fidelity rendering is achieved by 3D Gaussian Splatting, which provides a photorealistic view of the scene.
+          The aligned geometry is achieved by Mesh From BakedSDF, which provides a mesh representation of the scene.
+          The dual scene representation allows us to combine the strengths of both methods, resulting in a more accurate and realistic reconstruction of the scene.
+        </div>
+        <div class="container-fluid">
+          <!-- First Row -->
+          <div class="row mb-4">
+            <!-- First Column -->
+            <div class="col-md-4 text-center">
+              <img src="src/duo/cs_kitchen_n_rgb_gt.png" alt="Image 1" class="img-fluid mb-2">
+              <p>RGB GT</p>
+            </div>
+            <!-- Second Column -->
+            <div class="col-md-4 text-center">
+              <img src="src/duo/cs_kitchen_n_gs_mesh.png" alt="Image 2" class="img-fluid mb-2">
+              <p>2DGS Geometry</p>
+            </div>
+            <!-- Third Column -->
+            <div class="col-md-4 text-center">
+              <img src="src/duo/cs_kitchen_n_our_mesh.png" alt="Image 3" class="img-fluid mb-2">
+              <p>Ours Geometry (SDF)</p>
+            </div>
+          </div>
+          
+          <!-- Second Row -->
+          <div class="row">
+            <!-- Fourth Column -->
+            <div class="col-md-4 text-center">
+              <img src="src/duo/cs_kitchen_n_gs_render.png" alt="Image 4" class="img-fluid mb-2">
+              <p>2DGS Rendering</p>
+            </div>
+            <!-- Fifth Column -->
+            <div class="col-md-4 text-center">
+              <img src="src/duo/cs_kitchen_n_sdf_direct_render.png" alt="Image 5" class="img-fluid mb-2">
+              <p>SDF Rendering</p>
+            </div>
+            <!-- Sixth Column -->
+            <div class="col-md-4 text-center">
+              <img src="src/duo/cs_kitchen_n_gom_render.png" alt="Image 6" class="img-fluid mb-2">
+              <p>Ours Rendering (Gaussian On SDF Mesh)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Articulation Simulation Rendering
+        </h3>
+        <div class="text-justify">
+          We visualize the comparisons between our articulation simulation results and simulation generated by KlingAI.
+        </div>
+      </div>
+    </div> -->
+    
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Articulation Simulation Rendering
+        </h3>
+        <div class="text-justify">
+          We visualize the comparisons between our articulation simulation results and simulation generated by KlingAI.
+        </div>
+        
+        <!-- Video comparison container -->
+        <div class="video-comparison-container" style="margin-top: 20px;">
+          <!-- Videos row -->
+          <div class="row video-pair active" id="video-pair-1">
+            <!-- First video -->
+            <div class="col-md-6">
+              <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <video controls  autoplay loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                  <source src="src/art_sim_render/ours/drawer_03.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="video-caption text-center" style="margin-top: 10px;">
+                <p>Our Simulation Result</p>
+              </div>
+            </div>
+            
+            <!-- Second video -->
+            <div class="col-md-6">
+              <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <video controls  autoplay loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                  <source src="src/art_sim_render/kling/drawer_03.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="video-caption text-center" style="margin-top: 10px;">
+                <p>KlingAI Generation</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Additional video pairs (hidden by default) -->
+          <div class="row video-pair" id="video-pair-2" style="display: none;">
+            <div class="col-md-6">
+              <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <video controls  autoplay loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                  <source src="src/art_sim_render/ours/drawer_02.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="video-caption text-center" style="margin-top: 10px;">
+                <p>Our Simulation Result</p>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <video controls  autoplay loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                  <source src="src/art_sim_render/kling/drawer_02.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="video-caption text-center" style="margin-top: 10px;">
+                <p>KlingAI Simulation</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row video-pair" id="video-pair-3" style="display: none;">
+            <div class="col-md-6">
+              <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <video controls  autoplay loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                  <source src="src/art_sim_render/ours/drawer_06.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="video-caption text-center" style="margin-top: 10px;">
+                <p>Our Simulation Result</p>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <video controls  autoplay loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                  <source src="src/art_sim_render/kling/drawer_06.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="video-caption text-center" style="margin-top: 10px;">
+                <p>KlingAI Simulation</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Button navigation -->
+          <div class="row" style="margin-top: 20px;">
+            <div class="col-md-12 text-center">
+              <div class="btn-group" role="group" aria-label="Video navigation">
+                <button type="button" class="btn btn-default active" onclick="showVideoPair(1)">Example 1</button>
+                <button type="button" class="btn btn-default" onclick="showVideoPair(2)">Example 2</button>
+                <button type="button" class="btn btn-default" onclick="showVideoPair(3)">Example 3</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- JavaScript for switching between video pairs -->
+    <script>
+      function showVideoPair(pairNumber) {
+        // Hide all video pairs
+        const videoPairs = document.querySelectorAll('.video-pair');
+        videoPairs.forEach(pair => {
+          pair.style.display = 'none';
+        });
+        
+        // Show the selected video pair
+        document.getElementById('video-pair-' + pairNumber).style.display = 'flex';
+        
+        // Update active button
+        const buttons = document.querySelectorAll('.btn-group .btn');
+        buttons.forEach(button => {
+          button.classList.remove('active');
+        });
+        event.target.classList.add('active');
+      }
+    </script>
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Articulation Simulation Motions
+        </h3>
+        <div class="text-justify">
+          We visualize the comparisons between our predicted articulation motion trajectories (<span style="color: red;">red</span>) and the GT trajectories (<span style="color: blue;">blue</span>).
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <!-- Video carousel container -->
+        <div class="video-carousel-container">
+          <!-- Individual videos (only one visible at a time) -->
+          <div class="video-item active" id="video-1">
+            <div class="video-container" style="width: 100%; display: flex; justify-content: center;">
+              <video width="80%" autoplay loop muted playsinline>
+                <source src="src/tracks/door_0.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          
+          <div class="video-item" id="video-2" style="display: none;">
+            <div class="video-container" style="width: 100%; display: flex; justify-content: center;">
+              <video width="80%" autoplay loop muted playsinline>
+                <source src="src/tracks/door_6.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          
+          <div class="video-item" id="video-3" style="display: none;">
+            <div class="video-container" style="width: 100%; display: flex; justify-content: center;">
+              <video width="80%" autoplay loop muted playsinline>
+                <source src="src/tracks/door_13.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          
+          <!-- Navigation buttons -->
+          <div class="video-navigation" style="margin-top: 15px; display: flex; justify-content: center;">
+            <div class="btn-group" role="group" aria-label="Video navigation">
+              <button type="button" class="btn btn-default active" onclick="showVideo(1)">Example 1</button>
+              <button type="button" class="btn btn-default" onclick="showVideo(2)">Example 2</button>
+              <button type="button" class="btn btn-default" onclick="showVideo(3)">Example 3</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- JavaScript for switching between videos -->
+    <script>
+      function showVideo(videoNumber) {
+        // Hide all videos
+        const videoItems = document.querySelectorAll('.video-item');
+        videoItems.forEach(item => {
+          item.style.display = 'none';
+        });
+        
+        // Show the selected video
+        document.getElementById('video-' + videoNumber).style.display = 'block';
+        
+        // Update active button
+        const buttons = document.querySelectorAll('.btn-group .btn');
+        buttons.forEach(button => {
+          button.classList.remove('active');
+        });
+        event.target.classList.add('active');
+      }
+    </script>
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Interactable 3D Reconstruction
         </h3>
         <div class="text-justify">
           We visualize the interactable 3D reconstruction in multiple kitchens. To avoid clutter in visualization, we randomly select a subset of drawers/cabinets to open.
@@ -203,7 +531,7 @@
     </div>
 
 
-    <div class="glide" id="dynamic-carousel-4">
+    <!-- <div class="glide" id="dynamic-carousel-4">
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides">
           <li class="glide__slide">
@@ -214,16 +542,6 @@
           <li class="glide__slide">
             <video class="game" controls muted loop autoplay>
               <source src="src/videos/uw_kitchen_3.mp4" type="video/mp4"/>
-            </video>
-          </li>
-          <li class="glide__slide">
-            <video class="game" controls muted loop autoplay>
-              <source src="src/videos/cs_kitchen.mp4" type="video/mp4"/>
-            </video>
-          </li>
-          <li class="glide__slide">
-            <video class="game" controls muted loop autoplay>
-              <source src="src/videos/uw_kitchen.mp4" type="video/mp4"/>
             </video>
           </li>
           <li class="glide__slide">
@@ -261,7 +579,185 @@
         <span class="glide__bullet" data-glide-dir="=3"></span>
         <span class="glide__bullet" data-glide-dir="=4"></span>
       </div>
+    </div> -->
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <!-- Video carousel container with unique class name -->
+        <div class="multi-video-showcase">
+          <!-- Individual videos (only one visible at a time) -->
+          <div class="showcase-item active" id="showcase-vid-1">
+            <div class="showcase-container" style="width: 100%; display: flex; justify-content: center;">
+              <video class="game" width="80%" controls muted loop autoplay>
+                <source src="src/videos/cs_kitchen_n.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          
+          <div class="showcase-item" id="showcase-vid-2" style="display: none;">
+            <div class="showcase-container" style="width: 100%; display: flex; justify-content: center;">
+              <video class="game" width="80%" controls muted loop autoplay>
+                <source src="src/videos/uw_kitchen_3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          
+          <div class="showcase-item" id="showcase-vid-3" style="display: none;">
+            <div class="showcase-container" style="width: 100%; display: flex; justify-content: center;">
+              <video class="game" width="80%" controls muted loop autoplay>
+                <source src="src/videos/uw_kitchen_2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          
+          <div class="showcase-item" id="showcase-vid-4" style="display: none;">
+            <div class="showcase-container" style="width: 100%; display: flex; justify-content: center;">
+              <video class="game" width="80%" controls muted loop autoplay>
+                <source src="src/videos/cc_bathroom.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          
+          <div class="showcase-item" id="showcase-vid-5" style="display: none;">
+            <div class="showcase-container" style="width: 100%; display: flex; justify-content: center;">
+              <video class="game" width="80%" controls muted loop autoplay>
+                <source src="src/videos/cc_bedroom.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          
+          <div class="showcase-item" id="showcase-vid-6" style="display: none;">
+            <div class="showcase-container" style="width: 100%; display: flex; justify-content: center;">
+              <video class="game" width="80%" controls muted loop autoplay>
+                <source src="src/videos/cs_office.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          
+          <!-- Navigation buttons with unique class name -->
+          <div class="showcase-navigation" style="margin-top: 15px; display: flex; justify-content: center;">
+            <div class="showcase-btn-group" role="group" aria-label="Video navigation">
+              <button type="button" class="btn btn-default active" onclick="switchShowcaseVideo(1)">Kitchen 1</button>
+              <button type="button" class="btn btn-default" onclick="switchShowcaseVideo(2)">Kitchen 2</button>
+              <button type="button" class="btn btn-default" onclick="switchShowcaseVideo(3)">Kitchen 3</button>
+              <button type="button" class="btn btn-default" onclick="switchShowcaseVideo(4)">Bathroom</button>
+              <button type="button" class="btn btn-default" onclick="switchShowcaseVideo(5)">Bedroom</button>
+              <button type="button" class="btn btn-default" onclick="switchShowcaseVideo(6)">Office</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    
+    <!-- JavaScript with unique function name for switching between videos -->
+    <script>
+      function switchShowcaseVideo(videoNumber) {
+        // Hide all videos
+        const showcaseItems = document.querySelectorAll('.multi-video-showcase .showcase-item');
+        showcaseItems.forEach(item => {
+          item.style.display = 'none';
+        });
+        
+        // Show the selected video
+        document.getElementById('showcase-vid-' + videoNumber).style.display = 'block';
+        
+        // Update active button
+        const buttons = document.querySelectorAll('.showcase-btn-group .btn');
+        buttons.forEach(button => {
+          button.classList.remove('active');
+        });
+        event.target.classList.add('active');
+      }
+    </script>
+
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Real-to-Sim-to-Real
+        </h3>
+        <div class="text-justify">
+          We deploy policies trained in simulation in a zero-shot fashion in the real world on a Franka Emika Panda robot mounted on a mobile base. 
+          We trained independent policies for each substage of the problem - drawer closing, picking and placing, and opening.
+          <br>
+          <b>The videos below are played in a normal speed without any accelerations.</b>
+        </div>
+      </div>
+    </div>
+    
+
+   
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <!-- Video gallery container with unique class name -->
+        <div class="rsr-video-gallery">
+          <!-- Individual videos (only one visible at a time) -->
+          <div class="gallery-entry active" id="rsr-entry-1">
+            <div class="gallery-frame" style="width: 100%; display: flex; justify-content: center;">
+              <video width="80%" controls muted loop autoplay>
+                <source src="src/videos/rsr1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          
+          <div class="gallery-entry" id="rsr-entry-2" style="display: none;">
+            <div class="gallery-frame" style="width: 100%; display: flex; justify-content: center;">
+              <video width="80%" controls muted loop autoplay>
+                <source src="src/videos/rsr2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          
+          <div class="gallery-entry" id="rsr-entry-3" style="display: none;">
+            <div class="gallery-frame" style="width: 100%; display: flex; justify-content: center;">
+              <video width="80%" controls muted loop autoplay>
+                <source src="src/videos/rsr3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          
+          <!-- Navigation buttons with unique class name -->
+          <div class="gallery-controls" style="margin-top: 15px; display: flex; justify-content: center;">
+            <div class="gallery-nav-buttons" role="group" aria-label="Video navigation">
+              <button type="button" class="btn btn-default active" onclick="changeRSRVideo(1)">Prismatic Joint Example 1</button>
+              <button type="button" class="btn btn-default" onclick="changeRSRVideo(2)">Prismatic Joint Example 2</button>
+              <button type="button" class="btn btn-default" onclick="changeRSRVideo(3)">Revolute Joint Example</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- JavaScript with unique function name for switching between videos -->
+    <script>
+      function changeRSRVideo(videoNumber) {
+        // Hide all videos
+        const galleryEntries = document.querySelectorAll('.rsr-video-gallery .gallery-entry');
+        galleryEntries.forEach(entry => {
+          entry.style.display = 'none';
+        });
+        
+        // Show the selected video
+        document.getElementById('rsr-entry-' + videoNumber).style.display = 'block';
+        
+        // Update active button
+        const buttons = document.querySelectorAll('.gallery-nav-buttons .btn');
+        buttons.forEach(button => {
+          button.classList.remove('active');
+        });
+        event.target.classList.add('active');
+      }
+    </script>
 
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
@@ -275,7 +771,7 @@
       </div>
     </div>
 
-    <div class="glide" id="dynamic-carousel-2">
+    <div class="glide" id="dynamic-carousel">
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides">
           <li class="glide__slide">
@@ -346,7 +842,7 @@
       </div>
     </div>
 
-    <div class="glide" id="dynamic-carousel-3">
+    <div class="glide" id="dynamic-carousel-2">
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides">
           <li class="glide__slide">
@@ -391,22 +887,7 @@
     </div>
 
 
-
-
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <h3>
-          Real-to-sim-to-real
-        </h3>
-        <div class="text-justify">
-          We deploy policies trained in simulation in a zero-shot fashion in the real world on a Franka Emika Panda robot mounted on a mobile base. 
-          We trained independent policies for each substage of the problem - drawer closing, picking and placing, and opening.
-        </div>
-      </div>
-    </div>
-    
-
-    <div class="glide" id="dynamic-carousel">
+    <!-- <div class="glide" id="dynamic-carousel">
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides">
           <li class="glide__slide">
@@ -436,22 +917,7 @@
         <span class="glide__bullet" data-glide-dir="=1"></span>
         <span class="glide__bullet" data-glide-dir="=2"></span>
       </div>
-    </div>
-
-
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <h3>
-          System Overview
-        </h3>
-        <div class="text-justify">
-          Given multiple posed images from a single video, we employ a dual scene representation that combines high-fidelity rendering with aligned geometry. We then animate the scene with physical reasoning to estimate articulated and movable rigid-body objects. Our amodel shape estimation with hidden region texturing enables us to create an interactable digital twin, supporting real-time physical interactions such as opening drawers/cabinets, moving objects, and rendering novel views.  
-        </div>
-        <center>
-          <img src="src/images/method.png" width="100%" height="500px">
-        </center>
-      </div>
-    </div>
+    </div> -->
     
 
 
