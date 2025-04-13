@@ -1,0 +1,70 @@
+# @package _global_
+defaults:
+  - defaults
+  - override hydra/launcher: submitit_slurm
+  - _self_
+
+experiment_name: 'detr'
+checkpoint_epoch_interval: 10
+validation_epoch_interval: 10
+data:
+  train_dataset_names: ['3doi_v1']
+  val_dataset_names: ['3doi_v1']
+  test_dataset_names: ['3doi_v1']
+  image_size: [768, 1024]
+train:
+  batch_size: 8  # 16 on greatlakes
+  depth_on: True
+test:
+  mode: 'export_imgs'
+optimizer:
+  max_epochs: 200
+  name: 'AdamW'
+  lr: 1e-4
+  lr_backbone: 1e-5
+  lr_scheduler_name: 'StepLR'
+  lr_scheduler_step_size: 500 # epoch
+  lr_scheduler_gamma: 0.1
+  lbd_movable: 0.2
+  lbd_rigid: 0.2
+  lbd_kinematic: 0.2
+  lbd_action: 0.2
+  lbd_mask: 2.0
+  lbd_dice: 1.0
+  lbd_affordance: 0.0
+  lbd_bbox: 5.0
+  lbd_giou: 2.0
+  lbd_axis: 0.0
+  lbd_axis_offset: 0.0
+  lbd_eascore: 0.0
+  lbd_depth: 0.0
+  clip_max_norm: 0.1
+model:
+  name: "transformer"
+  backbone_name: 'resnet50'
+  transformer_hidden_dim: 256
+  transformer_dropout: 0.0
+  transformer_nhead: 8
+  transformer_dim_feedforward: 2048
+  transformer_num_encoder_layers: 6
+  transformer_num_decoder_layers: 6
+  transformer_normalize_before: False
+  transformer_return_intermediate_dec: True
+  layers_movable: 1
+  layers_rigid: 1
+  layers_kinematic: 1
+  layers_action: 1
+  layers_axis: 3
+  layers_affordance: 3
+hydra:
+  launcher:
+    name: 'DETR'
+    timeout_min: 4320
+    cpus_per_task: 2
+    gpus_per_node: 1
+    tasks_per_node: 1
+    mem_per_cpu: 12000
+    account: 'fouhey2'
+    nodes: 1
+    partition: 'spgpu'
+    exclude: 'gl1522'

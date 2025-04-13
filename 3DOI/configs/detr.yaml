@@ -1,0 +1,27 @@
+# @package _global_
+defaults:
+  - transformer_base
+  - _self_
+
+experiment_name: 'detr'
+checkpoint_epoch_interval: 5
+validation_epoch_interval: 5
+optimizer:
+  max_epochs: 200
+  lr_scheduler_step_size: 500 # epoch
+  lbd_movable: 0.2
+  lbd_rigid: 0.2
+  lbd_kinematic: 0.2
+  lbd_action: 0.2
+  lbd_mask: 2.0
+  lbd_dice: 1.0
+  lbd_affordance: 200.0
+  lbd_bbox: 5.0
+  lbd_giou: 2.0
+  lbd_axis: 1.0
+  lbd_axis_offset: 3.0
+  lbd_eascore: 0.0
+  lbd_depth: 1.0
+hydra:
+  launcher:
+    name: 'detr'

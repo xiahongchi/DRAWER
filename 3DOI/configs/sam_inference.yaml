@@ -1,0 +1,12 @@
+# @package _global_
+defaults:
+  - sam
+  - _self_
+
+
+train:
+  batch_size: 1
+test:
+  split: 'test'
+model:
+  sam_pretrained: False # do not load from SAM initial checkpoint

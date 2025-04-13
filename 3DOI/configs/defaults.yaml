@@ -1,0 +1,94 @@
+seed: 3
+experiment_name: 'experiment'
+resume: True
+stats_print_interval: 10
+validation_epoch_interval: 10000
+checkpoint_epoch_interval: 15
+checkpoint_path: ''
+output_dir: ''
+data_dir: ''
+image_dir: ''
+data:
+  train_dataset_names: ['3DOI']
+  val_dataset_names: ['3DOI']
+  test_dataset_names: []
+  image_size: [192, 256] # [height, width]
+  output_size: [768, 1024]
+  num_workers: 2
+  affordance_radius: 5 # gaussian bump of affordance
+  num_queries: 15 # maximal number of object queries
+  bbox_to_mask: False  # converting bbox to binary mask when preparing data
+train:
+  batch_size: 1
+  num_views: 1
+  eval_only: False
+  depth_on: False
+test:
+  epoch: None
+  mode: 'evaluation'
+  split: 'val'
+  num_samples: 100
+  use_depth: False
+  shortlist: None
+optimizer:
+  name: 'Adam'
+  max_epochs: 20000
+  mixed_precision: 'no'  # can be 'fp16'
+  lr: 0.0005
+  lr_backbone: 0.0005
+  lr_scheduler_name: 'StepLR'
+  lr_scheduler_step_size: 5000
+  lr_scheduler_gamma: 0.1
+  clip_max_norm: 0.0
+  lbd_movable: 1.0
+  lbd_rigid: 1.0
+  lbd_kinematic: 1.0
+  lbd_action: 1.0
+  lbd_mask: 1.0
+  lbd_dice: 1.0
+  lbd_affordance: 1.0
+  lbd_bbox: 1.0
+  lbd_giou: 1.0
+  lbd_axis: 1.0
+  lbd_axis_offset: 1.0
+  lbd_eascore: 1.0
+  lbd_depth: 1.0
+  lbd_vnl: 0.0
+  affordance_focal_alpha: 0.95 # focal loss 
+  freeze_backbone: False
+  ignore_index: -100  # pytorch F.cross_entropy default value
+  loss_mask_type: 'focal'
+visualization:
+  history_size: 10
+  visdom: True
+  visdom_server: 'http://nordrassil.eecs.umich.edu'
+  visdom_port: 8097
+unet:
+  n_embedding: 64
+model:
+  name: "transformer"
+  freeze_layers: []
+  fusion: 'concat'
+  backbone_name: 'resnet50'
+  transformer_hidden_dim: 256
+  transformer_dropout: 0.1
+  transformer_nhead: 8
+  transformer_dim_feedforward: 2048
+  transformer_num_encoder_layers: 6
+  transformer_num_decoder_layers: 6
+  transformer_normalize_before: False
+  transformer_return_intermediate_dec: True
+  layers_movable: 3
+  layers_rigid: 3
+  layers_kinematic: 3
+  layers_action: 3
+  layers_axis: 2
+  layers_affordance: 3
+  axis_bins: 30
+hydra:
+  sweep:
+    dir: "multirun/${experiment_name}/${now:%Y-%m-%d-%H-%M-%S}"
+  run:
+    dir: "outputs/${experiment_name}/${now:%Y-%m-%d-%H-%M-%S}"
+  job:
+    chdir: True
